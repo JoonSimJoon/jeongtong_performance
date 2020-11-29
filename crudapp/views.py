@@ -52,6 +52,9 @@ def delete(request, blog_id):
     blog.delete()
     return redirect('/')
 
+def guest(request):
+    return render(request,'guest.html')
+
 def new(request):
     full_text = request.GET['fulltext']
 
@@ -80,3 +83,5 @@ def search(request):
     
     else:
         return render(request, 'search.html')
+
+
