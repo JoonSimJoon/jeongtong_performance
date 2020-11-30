@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .models import Blog
+from .models import Blog, GuestBook
 from .forms import BlogUpdate
 
 def home(request):
@@ -29,6 +29,13 @@ def postcreate(request):
     blog.pub_date = timezone.datetime.now()
     blog.save()
     return redirect('/crudapp/detail/' + str(blog.id))
+
+def makebook(request):
+    guestbook=GuestBook()
+    guestbook.name=request.POST.get("name",None)
+    guestbook.save()
+    return render(request,'guest.html') # 
+ 
 
 def update(request, blog_id):
     blog = Blog.objects.get(id=blog_id)

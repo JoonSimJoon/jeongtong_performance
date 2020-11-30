@@ -3,12 +3,23 @@
 {% block content %}
 
 <br>
-<div class="container"style=" width:800px; height:800px;" id="box">
-    <div id = "loc" style="position: absolute;">
+<div class="container" style=" width:800px; height:800px;" id="box">
+    <div id="loc" style="position: absolute;">
+        
+
         <div id="box" onMouseOver="change()">
             x값: <span id="x"></span> y값: <span id="y"></span>
         </div>
     </div>
 </div>
+<div class="container">
+    <form action="{% url 'makebook' %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <span>이름</span>
+        <input type="text" name="name">
+        <input class="btn btn-dark" type="submit" value="출석체크하기">
+    </form>
 
-{% endblock %}
+</div>
+
+{% endblock %}  
