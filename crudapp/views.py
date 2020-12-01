@@ -60,6 +60,7 @@ def delete(request, blog_id):
     return redirect('/')
 
 def guest(request):
+    
     return render(request,'guest.html')
 
 def new(request):
