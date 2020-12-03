@@ -60,8 +60,8 @@ def delete(request, blog_id):
     return redirect('/')
 
 def guest(request):
-    
-    return render(request,'guest.html')
+    guestlist = GuestBook.objects.all()
+    return render(request,'guest.html',{'guestlist':guestlist})
 
 def new(request):
     full_text = request.GET['fulltext']

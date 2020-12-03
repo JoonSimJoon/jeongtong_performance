@@ -3,15 +3,22 @@
 {% block content %}
 
 <br>
+
+
 <div class="container" style=" width:800px; height:800px;" id="box">
+   
     <div id="loc" style="position: absolute;">
 
-
+        {% for list in guestlist %}
         <div id="box" onMouseOver="change()">
+            {{list.name}}
             x값: <span id="x"></span> y값: <span id="y"></span>
         </div>
+        {% endfor %}
+
     </div>
 </div>
+
 
 
 <div class="container">
@@ -23,5 +30,6 @@
     </form>
 
 </div>
+
 
 {% endblock %}
