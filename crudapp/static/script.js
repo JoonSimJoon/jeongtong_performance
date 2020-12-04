@@ -2,7 +2,7 @@ var randomNumber = 0;
 var box = document.getElementById("box");
 console.log('ad');
 function change() {
-
+    
     randomNumber = Math.floor(Math.random() * 700) + 128;
 
     loc.style.top = randomNumber;

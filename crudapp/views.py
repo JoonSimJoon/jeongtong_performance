@@ -34,7 +34,8 @@ def makebook(request):
     guestbook=GuestBook()
     guestbook.name=request.POST.get("name",None)
     guestbook.save()
-    return render(request,'guest.html') # 
+ #   return render(request,'home.html') # 
+    return redirect('/crudapp/guest') # 
  
 
 def update(request, blog_id):
