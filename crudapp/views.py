@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from .models import Blog, GuestBook
 from .forms import BlogUpdate
+modelcnt =0
 
 def home(request):
     blogs = Blog.objects.order_by('-id')
@@ -31,8 +32,11 @@ def postcreate(request):
     return redirect('/crudapp/detail/' + str(blog.id))
 
 def makebook(request):
+    global modelcnt
     guestbook=GuestBook()
     guestbook.name=request.POST.get("name",None)
+    guestbook.num=modelcnt
+    modelcnt=modelcnt+1
     guestbook.save()
  #   return render(request,'home.html') # 
     return redirect('/crudapp/guest') # 

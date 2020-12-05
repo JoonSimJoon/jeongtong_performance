@@ -15,5 +15,8 @@ class Blog(models.Model):
 
 class GuestBook(models.Model):
     name = models.CharField(max_length=50)
+    num = models.IntegerField(default =0)
     def __str__(self):
         return self.name
+    def __int__(self):
+        return self.num
